@@ -1,0 +1,301 @@
+/* =========================================
+   1. GENERAL BODY & LAYOUT
+   ========================================= */
+body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    min-height: 100vh;      /* The building is ALWAYS at least as tall as the screen */
+    
+    /* Your existing colors */
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+/* 2. Make the Content Area "Greedy" */
+/* This tells the container: "Grow to fill ALL empty space" */
+.container {
+    flex: 1; 
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155;
+}
+
+.fa-map-location {
+    color: #38bdf8;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #cbd5e1 !important;
+}
+
+.nav-link:hover {
+    color: #38bdf8 !important;
+}
+
+/* =========================================
+   2. INPUTS & FORMS (THE FIX)
+   ========================================= */
+
+/* I merged your .bg-dark-input rules here.
+   IMPORTANT: We removed '!important' from the border 
+   so the Red/Green validation can finally show up.
+*/
+.form-control {
+    background-color: #262626 !important; /* Dark Grey (Not Blue, Not Pitch Black) */
+    border: 1px solid #6b7280; /* Neutral Grey Border */
+    color: #e2e8f0 !important; /* Light Text */
+}
+
+/* Focus State (When you click inside) */
+.form-control:focus {
+    background-color: #262626 !important;
+    color: #e2e8f0 !important;
+    border-color: #38bdf8 !important; /* Sky Blue Highlight */
+    box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Placeholder Text */
+.form-control::placeholder {
+    color: #9ca3af; 
+}
+
+/* Label */
+.form-label {
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+/* =========================================
+   3. VALIDATION OVERRIDES (ESSENTIAL)
+   ========================================= */
+/* These rules force the Green/Red colors to appear 
+   when the form has the 'was-validated' class.
+*/
+
+/* SUCCESS (Green) */
+.was-validated .form-control:valid {
+    border-color: #198754 !important; /* Bootstrap Green */
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* ERROR (Red) */
+.was-validated .form-control:invalid {
+    border-color: #dc3545 !important; /* Bootstrap Red */
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Error Text Message */
+.invalid-feedback {
+    color: #ff6b6b !important; /* Bright Red for visibility */
+}
+
+/* =========================================
+   4. REST OF YOUR CSS (Footer, Cards, etc)
+   ========================================= */
+
+/* Footer */
+.f-info {
+    height: 10rem; 
+    background-color: #020617; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    margin: 0 0.5rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #38bdf8;
+}
+
+.f-info-links, 
+.f-info-socials, 
+.f-info-brand {
+    width: 100%;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem 0;
+}
+
+.f-info-socials a {
+    margin: 0.5rem 1rem;
+    color: #f1f5f9;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.f-info-socials a:hover {
+    color: #38bdf8;
+    transform: scale(1.2);
+}
+
+.f-info-brand {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Cards */
+.listing-card {
+    background-color: transparent !important;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover{
+    border: 1px solid #10262f;
+    border-radius: 1rem;
+}
+
+.listing-card:hover {
+    cursor: pointer;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+
+.card-img-top:hover {
+    opacity: 0.9;
+}
+
+.card-body {
+    padding: 0.5rem 0 !important;
+    color: #f0f0f0;
+}
+
+.card-text b {
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.card-text {
+    font-weight: 400 !important;
+    line-height: 1.4;
+}
+
+.listing-link {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.row {
+    margin-top: 1rem;
+}
+
+/* Utils */
+.text-sky {
+    color: #38bdf8 !important;
+}
+
+.btn-sky {
+    background-color: #38bdf8;
+    color: #0f172a;
+    transition: 0.3s;
+}
+
+.btn-sky:hover {
+    background-color: #7dd3fc;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+.text-slate {
+    color: #94a3b8 !important;
+}
+
+.bg-dark-card {
+    background-color: #1e293b !important;
+}
+
+.border-slate {
+    border: 1px solid #334155 !important;
+}
+
+.show-card {
+    padding: 20px;
+    border-radius: 1rem !important;
+    overflow: hidden;
+}
+
+.show-img {
+    height: 35vh;
+    object-fit: cover;
+}
+
+.btn-outline-danger {
+    border-width: 2px;
+}
+
+.btn-outline-danger:hover {
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.4);
+}
+
+.f-info {
+    /* No need for 'position: fixed' or 'bottom: 0' */
+    /* Your existing styles are fine */
+    height: 10rem;
+    background-color: #020617;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+    margin-top: auto; /* Extra safety to push it down */
+}
+
+
+/* Review Card Styling */
+.review-card {
+    background-color: #1f1f2d !important; /* Slightly lighter than the main body */
+    border: 1px solid #36308a !important;
+    border-radius: 0.75rem !important;
+    color: white !important;
+}
+
+.review-card .card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.review-card .card-text {
+    color: #bbb; /* Muted text for the comment */
+}
+
+/* Optional: styling for the delete button inside reviews */
+.review-card .btn-dark {
+    background-color: #111;
+    border: 1px solid #444;
+}
+
+.review-card .btn-dark:hover {
+    background-color: #ff385c; /* Wanderlust Red on hover */
+    border-color: #ff385c;
+}

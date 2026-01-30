@@ -1,0 +1,89 @@
+<style>
+    /* Main Navbar background */
+    .navbar {
+        background-color: #222 !important;
+        height: 5rem;
+    }
+
+    /* Brand Logo color */
+    .fa-map-location {
+        color: #fe424d; 
+        font-size: 2rem;
+    }
+
+    /* Customizing the Search Input for Dark Mode */
+    .form-control {
+        border-radius: 25px !important;
+        padding: 0.5rem 1rem !important;
+        background-color: #333 !important;
+        border: 1px solid #555 !important;
+        color: white !important;
+    }
+
+    .form-control::placeholder {
+        color: #aaa;
+    }
+
+    /* Search Button */
+    .btn-outline-success {
+        border-radius: 25px !important;
+        color: #fe424d !important;
+        border-color: #fe424d !important;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #fe424d !important;
+        color: white !important;
+    }
+
+    /* Navbar Links */
+    .nav-link {
+        color: white !important;
+        margin-right: 1rem;
+    }
+
+    .nav-link:hover {
+        color: #fe424d !important;
+    }
+
+    /* Fix spacing for the search form */
+    .search-form-container {
+        min-width: 300px;
+    }
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="fa-solid fa-map-location"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+               
+                <a class="nav-link" href="/listings">Explore</a>
+                
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Add New Listing</a>
+                <% if(!currUser) {%>
+                    <a class="nav-link active" href="/signup">Signup</a>
+                    <a class="nav-link" href="/login"><b>Log In</b></a>
+                <% } %>
+                <% if(currUser) {%>
+                    <a class="nav-link" href="/logout"><b>Log out</b></a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
